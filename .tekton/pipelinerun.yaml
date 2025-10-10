@@ -34,6 +34,8 @@ spec:
       value: "{{ source_branch }}"
     - name: git-commit
       value: "{{ revision }}"
+    - name: pull-request-number
+      value: "{{ pull_request_number }}"
 
     - name: image-repository
       value: build-harbor.alauda.cn/devops/sonatype-docker-nexus3
@@ -41,12 +43,11 @@ spec:
     - name: dockerfile-path
       value: Dockerfile.alpine.java17
 
-    - name: tags
-      value:
-        - 3.76.0
-
     - name: context
       value: "."
+
+    - name: tag-template
+      value: "v3.76.0-g${ShortSha}"
 
     - name: ignore-trivy-scan
       value: "true"

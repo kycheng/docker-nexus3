@@ -81,7 +81,8 @@ RUN $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME org/cyclonedx/cyclonedx-core-java
   && $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME org/ops4j/pax/url/pax-url-aether 2.6.12 2.6.17 \
   && $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME org/apache/commons/commons-lang3 3.13.0 3.18.0 \
   && $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME commons-beanutils/commons-beanutils 1.9.4 1.11.0 \
-  && $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME commons-fileupload/commons-fileupload 1.5 1.6.0
+  && $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME commons-fileupload/commons-fileupload 1.5 1.6.0 \
+  && $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME org/bouncycastle/bcpkix-jdk15to18 1.78.1 1.79
 
 # update jetty
 RUN $NEXUS_HOME/scripts/replace-jetty.sh $NEXUS_HOME 9.4.56.v20240826 9.4.57.v20241219
