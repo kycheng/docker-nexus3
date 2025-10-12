@@ -82,10 +82,11 @@ RUN $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME org/cyclonedx/cyclonedx-core-java
   && $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME org/apache/commons/commons-lang3 3.13.0 3.18.0 \
   && $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME commons-beanutils/commons-beanutils 1.9.4 1.11.0 \
   && $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME commons-fileupload/commons-fileupload 1.5 1.6.0 \
-  && $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME org/bouncycastle/bcpkix-jdk15to18 1.78.1 1.79
-
+  && $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME org/bouncycastle/bcpkix-jdk15to18 1.78.1 1.79 \
+  && cp $NEXUS_HOME/system/org/bouncycastle/bcpkix-jdk15to18/1.79/bcpkix-jdk15to18-1.79.jar $NEXUS_HOME/lib/bcpkix-jdk15to18-1.79.jar && rm -rf $NEXUS_HOME/lib/bcpkix-jdk15to18-1.78.1.jar \
+  && $NEXUS_HOME/scripts/replace.sh $NEXUS_HOME io/grpc/grpc-netty-shaded 1.62.2 1.75.0
 # update jetty
-RUN $NEXUS_HOME/scripts/replace-jetty.sh $NEXUS_HOME 9.4.56.v20240826 9.4.57.v20241219
+RUN $NEXUS_HOME/scripts/replace-jetty.sh $NEXUS_HOME 9.4.56.v20240826 9.4.58.v20250814
 
 
 RUN echo "#!/bin/bash" >> ${SONATYPE_DIR}/start-nexus-repository-manager.sh \
