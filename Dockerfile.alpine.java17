@@ -80,7 +80,7 @@ RUN echo "#!/bin/bash" >> ${SONATYPE_DIR}/start-nexus-repository-manager.sh \
 ## replace jar dependency for vulnerabilities
 COPY scripts/replace-vuln-jar.sh ${NEXUS_HOME}/bin/replace-vuln-jar.sh
 RUN chmod +x ${NEXUS_HOME}/bin/replace-vuln-jar.sh && \
-    ${NEXUS_HOME}/bin/replace-vuln-jar.sh -i ${NEXUS_HOME}/bin/sonatype-nexus-repository-${NEXUS_VERSION}.jar -r net/minidev/json-smart:2.5.0:2.5.2,org/keycloak/keycloak-saml-core:18.0.2:25.0.6,commons-fileupload/commons-fileupload:1.5:1.6.0,io/projectreactor/netty/reactor-netty-http:1.0.39:1.2.8,org/apache/commons/commons-lang3:3.13.0:3.18.0,org/springframework/boot/spring-boot:3.3.6:3.3.11,commons-beanutils/commons-beanutils:1.9.4:1.11.0,io/netty/netty-codec:4.1.119.Final:4.1.125.Final,org/bouncycastle/bc-fips:2.1.0:2.1.1,org/bouncycastle/bcpkix-jdk15to18:1.78.1:1.79,org/springframework/spring-core:6.1.15:6.1.20 && \
+    ${NEXUS_HOME}/bin/replace-vuln-jar.sh -i ${NEXUS_HOME}/bin/sonatype-nexus-repository-${NEXUS_VERSION}.jar -r net/minidev/json-smart:2.5.0:2.5.2,org/keycloak/keycloak-saml-core:18.0.2:25.0.6,commons-fileupload/commons-fileupload:1.5:1.6.0,io/projectreactor/netty/reactor-netty-http:1.0.39:1.2.8,org/apache/commons/commons-lang3:3.13.0:3.18.0,org/springframework/boot/spring-boot:3.3.6:3.3.11,commons-beanutils/commons-beanutils:1.9.4:1.11.0,io/netty/netty-codec:4.1.119.Final:4.1.125.Final,org/bouncycastle/bc-fips:2.1.0:2.1.1,org/bouncycastle/bcpkix-jdk15to18:1.78.1:1.79,org/springframework/spring-core:6.1.15:6.2.11,io/netty/netty-codec-http2:4.1.119.Final:4.1.125.Final,io/netty/netty-codec-http:4.1.119.Final:4.1.125.Final && \
     rm -f ${NEXUS_HOME}/bin/replace-vuln-jar.sh
 
 RUN apk del gzip shadow bash zip
